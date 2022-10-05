@@ -1,0 +1,71 @@
+<%- include("partials/header") %> 
+
+
+<main class="">
+    <section class="post-page main">
+      <div class="container">
+
+        <div class="col s12 m7">
+          <h2 class="header"><%= post.recipeName %> </h2>
+          <div class="card horizontal">
+            <div class="card-image">
+              <img class="responsive-img" src="<%= post.image %> ">
+            </div>
+            <div class="card-stacked">
+              <div class="card-tabs">
+                <ul class="tabs tabs-fixed-width">
+                  <li class="tab"><a href="#details">Details</a></li>
+                  <li class="tab"><a href="#ingredients">Ingredients</a></li>
+                  <li class="tab"><a href="#directions">Directions</a></li>
+                </ul>
+              </div>
+              <div class="card-content grey lighten-4">
+                <div id="details">
+                  <h4 class="flow-text">Created By: <%= post.userName %> </h4>
+                  <br>
+                  <h4 class="flow-text">Likes: <%= post.likes %> </h4>
+                  <br>
+                  <h4 class="flow-text">Tag: <%= post.recipeCategory %> </h4>
+                  <br>
+                  <h4 class="flow-text">Description: <%= post.description %> </h4>
+                  <br>
+                  <!-- <h4 class="flow-text">Rating: </h4> -->
+                </div>
+                <div id="ingredients">
+                  <ul class="" style="padding-left: 40px">
+                    <%for (let i = 0; i < post.recipeIngredients.length; i++) { %>   
+                      <li class="ingredient-list"><%=post.recipeIngredients[i]%></li>
+                    <% } %> 
+                  </ul>
+                </div>
+                <div id="directions">
+                  <ol>
+                    <% for( let i = 0; i < post.recipeDirections.length; i++ ) { %>
+                      <li><%= post.recipeDirections[i] %> </li>
+                    <% } %>
+                  </ol>
+                </div>
+              </div>
+              <!-- <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.</p>
+              </div> -->
+              <div class="card-action">
+                <form class="col-1" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+                  <button class="" type="submit">  <i class="small material-icons valign-wrapper">favorite</i></button>                
+                </form>
+                  <%if(post.user == user._id){ %>
+                  <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
+                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                  </form>
+                  <%}%>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<%- include("partials/footer") %> 
+
+
+

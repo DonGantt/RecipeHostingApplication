@@ -1,0 +1,40 @@
+<%- include("partials/header") %> 
+    
+<main>
+    <section class="form-section">
+        <div class="container row input-field ">
+            <h2 class="center-align">Create Account</h2>
+            <div class="col l4 offset-l4 s12  m8 offset-m2" id="form-div">
+                <form action="/signup" method="post">
+                    <div class="input-field">
+                        <!-- <i class="material-icons prefix"></i> -->
+                        <input type="text" name="name" placeholder="Name" id="Name" required>
+                        <label for="Name">Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="userName" placeholder="User Name" id="UserName" maxlength="15" required>
+                        <label for="UserName">User Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" name="email" placeholder="E-Mail" id="email" required>
+                        <label for="email">E-Mail</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="password" placeholder="Password" id="password" minlength="8" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password" id="confirmPassword" minlength="8" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="center-align">
+                        <button class="btn" type="submit">Create Account</button>
+                    <!-- <div class="center-align">
+                        <span class="">Your data will never be shared with anyone</span>
+                    </div> -->
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include("partials/footer") %> 

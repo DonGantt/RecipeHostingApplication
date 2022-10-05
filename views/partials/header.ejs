@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <title>Grandma's Cookbook</title>
+
+</head>
+    <body>    
+        <header>
+            <div class="navbar-fixed">
+                <nav class="tan-background nav-extended">
+                    <div class="nav-wrapper small-container">      
+                        <a href="/" class="brand-logo flow-text">  <h4 style="font-size: 15px; line-height: 1.75em;" class="center brand-wrapper"> Grandma's Cookbook </h4></a>
+                        <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul id="" class="right hide-on-med-and-down">
+                            <li class="">
+                                <a href="/"> Home</a>
+                            </li>    
+                            <li class="">
+                                <a href="/post/type/Breakfast"> Breakfast </a>  
+                            </li>  
+                            <li class="">
+                                <a href="/post/type/Lunch">Lunch</a>
+                            </li>  
+                            <li class="">
+                                <a href="/post/Dinner">Dinner</a>
+                            </li>  
+                            <li class="">
+                                <a href="/post/Dessert">Dessert</a>
+                            </li>
+                            <li class="/post/Random">
+                                <a href="">Random</a>
+                            </li>
+                            <li class="">
+                                <% if(!user) { %> 
+                                    <a href="/login">Login</a>   
+                                <% } else { %> 
+                                    <a href="/profile">Account</a>
+                                <% } %> 
+                            </li>
+                        </ul> 
+                    </div>      
+                </nav>
+            </div>
+
+
+            <div>
+                <ul id="mobile" class="sidenav">
+                    <li class="">
+                        <a href="/post/type/Breakfast"> Breakfast </a>
+                    </li>  
+                    <li class="">
+                        <a href="/post/type/Lunch">Lunch</a>
+                    </li>  
+                    <li class="">
+                        <a href="/post/type/Dinner">Dinner</a>
+                    </li>  
+                    <li class="">
+                        <a href="/post/type/Dessert">Dessert</a>
+                    </li>
+                    <li class="">
+                        <a href="/post/Random">Random</a>
+                    </li>
+                    <li class="">
+                        <% if(!user) { %> 
+                            <a href="/login">Login</a>   
+                        <% } else { %> 
+                            <a href="/profile">Account</a>
+                        <% } %> 
+                    </li>
+                </ul> 
+            </div>
+        </header>
+  

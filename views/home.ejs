@@ -1,0 +1,138 @@
+<%- include("partials/header") -%> 
+
+<main>
+	<h1 class="center">Home</h1>
+
+	<section class="main container valign-wrapper row">
+	  <div class="col s3 hide-on-med-and-down">
+			<div class="card small">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator responsive-img" src="https://via.placeholder.com/300" >
+				</div>
+				<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+				  <p><a href="#">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				</div>
+			  </div>
+			  <div class="card small">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator responsive-img" src="https://via.placeholder.com/300" >
+				</div>
+				<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+				  <p><a href="#">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				</div>
+			  </div>
+		</div>
+
+		
+		<div class="col s12 m12 l6">
+		  <div class="card large">
+			<div class="card-image waves-effect waves-block waves-light">
+			  <img class="activator responsive-img" src="<%= posts[0].image %> " >
+			</div>
+			<div class="card-content">
+			  <span class="card-title activator grey-text text-darken-4"><%= posts[0].recipeName %> <i class="material-icons right">more_vert</i></span>
+			  <p><a href="/post/<%= posts[0]._id %> ">Click Me To Cook Me</a></p>
+			</div>
+			<div class="card-reveal">
+			  <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+			  <p><%= posts[0].description %> </p>
+			  <p><%= posts[0] %> </p>
+			</div>
+		  </div>
+		</div>
+   
+	   
+		<div class="col s3 hide-on-med-and-down">
+			<div class="card small">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator responsive-img" src="https://via.placeholder.com/300" >
+				</div>
+				<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+				  <p><a href="#">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				</div>
+			  </div>
+			  <div class="card small">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator responsive-img" src="https://via.placeholder.com/300" >
+				</div>
+				<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+				  <p><a href="#">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				</div>
+			  </div>
+		  </div>
+	</section>
+</main>
+			  <!-- <div class="card small col offset-half s3 ">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator" src="https://via.placeholder.com/300" >
+				</div>
+				<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+				  <p><a href="#">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+				</div>
+			  </div> -->
+
+<section class="Sub_Recipes">
+	<div class="container row">
+		<% for( let i = 1; i < posts.length; i++ ) { %>
+			<% if (i%2 !== 0) { %>
+			  <div class="card small  col left s5">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator responsive-img" src="<%=posts[i].image%> " >
+				</div>
+				<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4"><%=posts[i].recipeName%> <i class="material-icons right">more_vert</i></span>
+				  <p><a href="/post/<%=posts[i]._id%> ">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+				  <p><%= posts[i].description %> </p>
+				</div>
+			  </div>	  
+			<% } else {%>
+			  <div class="card small sub col offset-s2 s5">
+				<div class="card-image waves-effect waves-block waves-light">
+				  <img class="activator responsive-img" src="<%=posts[i].image%> " >
+				</div>
+				<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4"><%=posts[i].recipeName%> <i class="material-icons right">more_vert</i></span>
+				  <p><a href="/post/<%=posts[i]._id%> ">This is a link</a></p>
+				</div>
+				<div class="card-reveal">
+				  <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+				  <p><%=posts[i].description%> </p>
+				</div>
+			  </div>
+			<% } %> 
+		  <% } %>
+  
+	</div>
+</section>
+
+
+
+<%- include("partials/footer") -%> 

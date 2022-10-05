@@ -1,0 +1,72 @@
+
+
+<%- include("partials/header") %> 
+<main>
+    <!-- There are tweaks i can still perform! -->
+    <section class="form-section">
+        <div class="container row">
+            <h2 class="center-align" id="recipePage">Add A Recipe!</h2>
+            <div class="col s12 l4 offset-l4 m8 offset-m2">
+                <form id="form" action="/post/createPost" enctype="multipart/form-data" method="POST" >
+                    <div class="input-field">
+                        <input id="recipeName" type="text" minlength="2" required name="recipeName">
+                        <label for="recipeName">Recipe Name</label>
+                    </div>
+                    <div class="ingredient-container">
+                        <div class="input-field" id = "ingredient-0">
+                            <input class="ingredients" type="text"  name="recipeIngredient">
+                            <label for="recipeIngredient">Add Ingredients</label>
+                        </div>
+                    </div>
+                  
+                    <div class="direction-container">
+                        <div class="input-field">
+                            <i class=" prefix">1:</i>
+
+                            <textarea class="materialize-textarea" name="recipeDirection" id="recipeDirection"></textarea>
+                            <label for="recipeDirection">Add Direction</label>
+                                <!-- use add and remove later for neater code for icons -->
+                        </div>
+                    </div> 
+              
+                    <div class="input-field">
+                        <textarea class="materialize-textarea" name="recipeDescription" id="recipeDescription" required></textarea>
+                        <label for="recipeDescription">Describe your recipe</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select required name="recipeCategory">
+                            <option value="" disabled selected>Choose your category</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="AppSnack">Appetizer-Snack</option>
+                        </select>
+                        <label>Choose Your Category</label>
+                    </div>
+
+                    <div class="center align" id="button-container">
+                        <div>
+                            <button id="addIngredient" type="button" class="btn">Add Ingredient</button>    
+                            <button id="deleteIngredient" type="button"  class="btn">Erase Ingredient</button>
+                        </div>
+                        <br>
+                        <br>
+                        <div>
+                            <button id="addDirection" type="button" class="btn"><i class="class material-icon">add</i></button>
+                            <button id="deleteDirection" type="button"  class="btn">Erase Direction</button>
+                        </div>
+                        <br>
+                        <br>      
+                        <input required type="file" placeholder="Recipe Image"  accept=".jpg, .jpeg, .png, .svg" name="file"  class="btn">              
+                        <br>
+                        <br>
+                        <button id="submitItems" type="submit" class="btn" name="submitRecipe" value="Submit Recipe">Submit Recipe
+                        </button>   
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<%- include("partials/footer") %> 

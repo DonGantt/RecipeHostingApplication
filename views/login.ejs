@@ -1,0 +1,31 @@
+<%- include("partials/header") -%> 
+
+<main class="form-section">
+    <div class="container row input-field ">
+        <h2 class="center-align">Login</h2>
+
+        <div class="col s12 offset-l4 l4 m8 offset-m2" id="form-div">
+            <form action="/login" method="post">
+                <div class="input-field">
+                    <input class="validate" type="email" name="email" id="userEmail">
+                    <label for="userEmail">E-mail</label>
+                    <span class="helper-text" data-error="Input a proper email" data-success="Success">Input your email</span>
+                </div>
+                <br>
+                <div class="input-field">
+                    <input type="password" name="password" id="Password">
+                    <label for="Password">Password</label>
+                </div>
+                <div class="center-align">
+                    <button class="btn" type="submit">Login</button>
+                <!-- <div class="center-align">
+                    <span class="">Your data will never be shared with anyone</span> -->
+                </div>
+        </form>
+
+    </div>
+    <span class="col offset-l4 offset-m2 form-space">Don't Have An Account? <a class="create-account" href="/signup"> Create One </a></span>
+
+</main>
+
+<%- include("partials/footer") -%> 
