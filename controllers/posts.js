@@ -46,12 +46,12 @@ module.exports = {
   },
   getRandomPost: async (req, res) => {
     try {
-      const posts = await Post.find().lean();
+      console.log("hit")
+      const [post] = await Post.aggregate([{ $sample: { size: 1 } }])
 
-      console.log(posts)
-      let randomPost;
+      console.log(post)
 
-      res.render("feed.ejs", { posts: posts });
+      res.render("post.ejs", { post: post, user: req.user });
     } catch (err) {
       console.log(err);
     }

@@ -6,7 +6,7 @@
     <section class="form-section">
         <div class="container row">
             <h2 class="center-align" id="recipePage">Add A Recipe!</h2>
-            <div class="col s12 l4 offset-l4 m8 offset-m2">
+            <div class="col s12 l6 offset-l3 m8 offset-m2" id="form-div">
                 <form id="form" action="/post/createPost" enctype="multipart/form-data" method="POST" >
                     <div class="input-field">
                         <input id="recipeName" type="text" minlength="2" required name="recipeName">
@@ -21,7 +21,7 @@
                   
                     <div class="direction-container">
                         <div class="input-field">
-                            <i class=" prefix">1:</i>
+                            <span class=" prefix">1:</span>
 
                             <textarea class="materialize-textarea" name="recipeDirection" id="recipeDirection"></textarea>
                             <label for="recipeDirection">Add Direction</label>

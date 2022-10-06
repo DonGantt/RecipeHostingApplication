@@ -25,13 +25,7 @@ if(document.getElementById("addIngredient")){
     document.getElementById("addDirection").addEventListener("click", addDirections);
     document.getElementById("deleteDirection").addEventListener("click", deleteDirections)
 }
-// ingredientId = 0;
-// directionId = 0;
 
-// document.getElementById("addIngredient").addEventListener("click", addIngredients);
-// document.getElementById("deleteIngredient").addEventListener("click", deleteIngredient);
-// document.getElementById("addDirection").addEventListener("click", addDirections);
-// document.getElementById("deleteDirection").addEventListener("click", deleteDirections)
 
 
 
@@ -77,15 +71,15 @@ function deleteIngredient() {
 function addDirections(){
     const textarea = document.createElement("textarea");
     const div = document.createElement("div");
-    const i = document.createElement("i");
+    const span = document.createElement("span");
     const label = document.createElement("label");
     const directionContainer = document.querySelector(".direction-container")
 
 
     directionId++
 
-    i.classList.add("prefix");
-    i.innerText = `${directionId + 1}:`
+    span.classList.add("prefix");
+    span.innerText = `${directionId + 1}:`
 
     textarea.classList.add("materialize-textarea");
     textarea.id = "recipeDirection"
@@ -100,7 +94,7 @@ function addDirections(){
 
     directionContainer.appendChild(div)
 
-    div.appendChild(i)
+    div.appendChild(span)
     div.appendChild(textarea)
     div.appendChild(label)
   

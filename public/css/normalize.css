@@ -388,6 +388,10 @@ a{
   margin: 10% auto;
 }
 
+.page-title{
+  margin: 4% auto;
+}
+
 .ingredient-list{
   list-style-type: square !important;
   padding-left: 24px !important;

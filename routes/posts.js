@@ -7,9 +7,12 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 //Post Routes - simplified for now
 router.get("/createPost", ensureAuth, postsController.getCreatePost)
 
+router.get("/random",  postsController.getRandomPost); 
+
 router.get("/:id",  postsController.getPost); //Do I need to ensure auth?
 
 router.get("/type/:category",  postsController.getSortedFeed); //Do I need to ensure auth?
+
 
 router.post("/createPost", ensureAuth ,upload.single("file"), postsController.createPost);
 
