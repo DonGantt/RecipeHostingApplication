@@ -5,7 +5,7 @@
     <section class="post-page main">
       <div class="container">
 
-        <div class="col s12 m7">
+        <div class="col s12 hide-on-med-and-down">
           <h2 class="header"><%= post.recipeName %> </h2>
           <div class="card horizontal">
             <div class="card-image">
@@ -32,16 +32,16 @@
                   <!-- <h4 class="flow-text">Rating: </h4> -->
                 </div>
                 <div id="ingredients">
-                  <ul class="" style="padding-left: 40px">
+                  <ul class="padding-shift">
                     <%for (let i = 0; i < post.recipeIngredients.length; i++) { %>   
-                      <li class="ingredient-list"><%=post.recipeIngredients[i]%></li>
+                      <li class="ingredient-list"> <h6><%=post.recipeIngredients[i]%></h6></li>
                     <% } %> 
                   </ul>
                 </div>
                 <div id="directions">
                   <ol>
                     <% for( let i = 0; i < post.recipeDirections.length; i++ ) { %>
-                      <li><%= post.recipeDirections[i] %> </li>
+                      <li> <h6><%= post.recipeDirections[i] %></h6> </li>
                     <% } %>
                   </ol>
                 </div>
@@ -50,17 +50,85 @@
                 <p>I am a very simple card. I am good at containing small bits of information.</p>
               </div> -->
               <div class="card-action">
-                <form class="col-1" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
-                  <button class="" type="submit">  <i class="small material-icons valign-wrapper">favorite</i></button>                
-                </form>
-                  <%if(post.user == user._id){ %>
-                  <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
-                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                <% if (user) { %>
+                  <form class="col-1" action="/post/likePost/<%= post._id %>?_method=PUT" method="POST">
+                    <button class="" type="submit">  <i class="small material-icons valign-wrapper">favorite</i></button>                
                   </form>
+   
+                  <%if(post.user == user._id){ %>
+                    <form action="/post/deletePost/<%= post._id %>?_method=DELETE" method="POST" class="col-3">
+                      <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                    </form>
                   <%}%>
+                <% } %>
+
               </div>
             </div>
         </div>
+      </div>
+
+
+      <div class="col s12 m12 show-on-medium-and-down hide-on-large-only">
+        <div class="card sticky-action">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator responsive-img" src="<%= post.image %> ">
+          </div>
+          <div class="card-content">
+            <h5>
+              <%= post.recipeName %>
+            </h5>
+            <div class="card-action">
+              <% if (user) { %>
+                <form class="col-1" action="/post/likePost/<%= post._id %>?_method=PUT" method="POST">
+                  <button class="" type="submit">  <i class="small material-icons valign-wrapper">favorite</i></button>                
+                </form>
+ 
+                <%if(post.user == user._id){ %>
+                  <form action="/post/deletePost/<%= post._id %>?_method=DELETE" method="POST" class="col-3">
+                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                  </form>
+                <%}%>
+              <% } %>
+
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= post.recipeName %> <i class="material-icons right">close</i></span>
+            
+            <div class="card-tabs">
+              <ul class="tabs tabs-fixed-width">
+                <li class="tab"><a href="#detailsSmall">Details</a></li>
+                <li class="tab"><a href="#ingredientsSmall">Ingredients</a></li>
+                <li class="tab"><a href="#directionsSmall">Directions</a></li>
+              </ul>
+            </div>
+
+
+
+            <div id="detailsSmall">
+              <h4 class="flow-text">Created By: <%= post.userName %> </h4>
+              <h4 class="flow-text">Likes: <%= post.likes %> </h4>
+              <h4 class="flow-text">Tag: <%= post.recipeCategory %> </h4>
+              <h4 class="flow-text">Description: <%= post.description %> </h4>
+              <!-- <h4 class="flow-text">Rating: </h4> -->
+            </div>
+            <div id="ingredientsSmall">
+              <ul class="padding-shift">
+                <%for (let i = 0; i < post.recipeIngredients.length; i++) { %>   
+                  <li class="ingredient-list"><h6><%=post.recipeIngredients[i]%></h6></li>
+                <% } %> 
+              </ul>
+            </div>
+            <div id="directionsSmall">
+              <ol>
+                <% for( let i = 0; i < post.recipeDirections.length; i++ ) { %>
+                  <li><h6><%= post.recipeDirections[i] %></h6> </li>
+                <% } %>
+              </ol>
+            </div>  
+          </div>
+        </div>
+                  
       </div>
     </section>
   </main>

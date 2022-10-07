@@ -404,9 +404,6 @@ a{
   color: aqua !important;
 }
 
-@media screen (min-width: 993px) {
-  .brand-wrapper{
-    left: 50%;
-
-  }
+.padding-shift{
+  padding-left: 40px !important;
 }
