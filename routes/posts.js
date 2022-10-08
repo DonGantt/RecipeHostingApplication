@@ -9,6 +9,8 @@ router.get("/createPost", ensureAuth, postsController.getCreatePost)
 
 router.get("/random",  postsController.getRandomPost); 
 
+router.get("/edit/:id", ensureAuth ,postsController.getEditPost);
+
 router.get("/:id",  postsController.getPost); //Do I need to ensure auth?
 
 router.get("/type/:category",  postsController.getSortedFeed); //Do I need to ensure auth?
@@ -17,6 +19,8 @@ router.get("/type/:category",  postsController.getSortedFeed); //Do I need to en
 router.post("/createPost", ensureAuth ,upload.single("file"), postsController.createPost);
 
 router.put("/likePost/:id", ensureAuth ,postsController.likePost);
+
+router.put("/edit/:id", ensureAuth, postsController.editPost)
 
 router.delete("/deletePost/:id", ensureAuth ,postsController.deletePost);
 

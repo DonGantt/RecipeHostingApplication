@@ -7,11 +7,11 @@
                 <section class="user_header">
                     <div class="">
                         <div class="col">
-                            <h1>Welcome Back <%=user.userName%>     <a href="/post/createpost">
-                                <i class="small material-icons valign-wrapper">add</i>
-                             </a> </h1>
+                            <h3 class="flow-text">Welcome Back <%=user.userName%> </h3> 
                         
-                            <span><a href="/logout"><i class="class small material-icons">exit_to_app</i></a></span>
+                            <span><a href="/logout"><i class="class small material-icons">exit_to_app</i></a>     <a href="/post/createpost">
+                                <i class="small material-icons valign-wrapper">add</i>
+                             </a> </span>
                         </div>
                         <div class="large-container center">
                             <h5>No Post Here. Only Squirrels. Click the + button to create a post.</h5>
@@ -23,21 +23,19 @@
             <% } else { %> 
             <section class="user_header">
                 <div class="">
-                    <div class="col">
-                        
-                        <h1>Welcome Back <%=user.userName%>     <a href="/post/createpost">
+                    <div class="">
+                        <h4 class="">Welcome Back <%=user.userName%></h4>
+
+                        <span><a href="/logout"><i class="class small material-icons">exit_to_app</i></a> <a href="/post/createpost">
                             <i class="small material-icons valign-wrapper">add</i>
-                         </a> </h1>
-                    
-                        <span><a href="/logout"><i class="class small material-icons">exit_to_app</i></a></span>
+                         </a> </span>
                     </div>
-                  
                 </div>
                 
             </section>
             <section class="popular_post">
                 <div class="row hide-on-med-and-down">
-                    <h1>Most Popular Recipe: <%= posts[0].recipeName %> </h1>
+                    <h5 class="">Most Popular Recipe: <%= posts[0].recipeName %> </h5>
 
                     <div class="card horizontal">
                         <div class="card-image">
@@ -60,7 +58,7 @@
                               <!-- <h4 class="flow-text">Rating: </h4> -->
                             </div>
                             <div id="ingredients">
-                              <ul class="">
+                              <ul class="padding-shift">
                                 <% for( let i = 0; i < posts[0].recipeIngredients.length; i++ ) { %>
                                     <li class="ingredient-list"><%= posts[0].recipeIngredients[i] %> </li>
                                 <% } %>
@@ -77,29 +75,99 @@
                           <!-- <div class="card-content">
                             <p>I am a very simple card. I am good at containing small bits of information.</p>
                           </div> -->
-                          <div class="card-action">
-                            <form action="/post/deletePost/<%= posts[0].id %>?_method=DELETE" method="POST">
-                                <button class="" type="submit">  <i class="small material-icons valign-wrapper">delete</i></button>
-                          
-                            </form>
+                          <div class="card-action"style="margin-bottom: 0%;">
+                            <div class="col l1 m2 s2">
+                                <form action="/post/deletePost/<%= posts[0].id %>?_method=DELETE" method="POST">
+                                    <button class="btn" type="submit">  <i class="small material-icons valign-wrapper">delete</i></button>
+                                </form>
+                            </div>
+                            <div class="col l1 m2 s2">
+                                <button type="" class="btn"><a href="/post/edit/<%= posts[0].id %>" style="margin-right:0%;"><i class="small material-icons">create</i></a></button>
+                            </div>
                             <!-- <a href="#">This is a link</a> -->
                           </div>
                         </div>    
                     </div>
                 </div>
+
+
+                <div class="col s12 m12 show-on-medium-and-down hide-on-large-only">
+                    <h5>Most Popular Recipe: <%= posts[0].recipeName %> </h5>
+
+                    <div class="card sticky-action medium">
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator responsive-img" src="<%= posts[0].image %> ">
+                      </div>
+                      <div class="card-content">
+                        <h5>
+                          <%= posts[0].recipeName %>
+                        </h5>
+                        <div class="card-action row" style="margin-bottom: 0%;">
+                
+                              <div class="col l1 m2 s2">
+                                <form action="/post/deletePost/<%= posts[0]._id %>?_method=DELETE" method="POST" class="">
+                                  <button class="btn" type="submit"><i class="small material-icons">delete</i></button>
+                                </form>
+                              </div>
+                              <div class="col l1 m2 s2">
+                                <button type="" class="btn"><a href="/post/edit/<%= posts[0]._id %>" style="margin-right:0%;"><i class="small material-icons">create</i></a></button>
+                              </div>
+                        
+                        </div>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><%= posts[0].recipeName %> <i class="material-icons right">close</i></span>
+                        
+                        <div class="card-tabs">
+                          <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a href="#detailsSmall">Details</a></li>
+                            <li class="tab"><a href="#ingredientsSmall">Ingredients</a></li>
+                            <li class="tab"><a href="#directionsSmall">Directions</a></li>
+                          </ul>
+                        </div>
+            
+            
+            
+                        <div id="detailsSmall">
+                          <h4 class="flow-text">Created By: <%= posts[0].userName %> </h4>
+                          <h4 class="flow-text">Likes: <%= posts[0].likes %> </h4>
+                          <h4 class="flow-text">Tag: <%= posts[0].recipeCategory %> </h4>
+                          <h4 class="flow-text">Description: <%= posts[0].description %> </h4>
+                          <!-- <h4 class="flow-text">Rating: </h4> -->
+                        </div>
+                        <div id="ingredientsSmall">
+                          <ul class="padding-shift">
+                            <%for (let i = 0; i < posts[0].recipeIngredients.length; i++) { %>   
+                              <li class="ingredient-list"><h6><%=posts[0].recipeIngredients[i]%></h6></li>
+                            <% } %> 
+                          </ul>
+                        </div>
+                        <div id="directionsSmall">
+                          <ol>
+                            <% for( let i = 0; i < posts[0].recipeDirections.length; i++ ) { %>
+                              <li><h6><%= posts[0].recipeDirections[i] %></h6> </li>
+                            <% } %>
+                          </ol>
+                        </div>  
+                      </div>
+                    </div>
+                              
+                  </div>
             </section>
         
+            <div class="divider"></div>
+
             <section>
                 <div>
                     <% for( let i = 1; i < posts.length; i++ ) { %>
                         <% if (i%2 !== 0) { %>
-                          <div class="card small  col left s5">
+                          <div class="card small  col left l5">
                             <div class="card-image waves-effect waves-block waves-light">
                               <img class="activator responsive-img" src="<%=posts[i].image%> " >
                             </div>
                             <div class="card-content">
                               <span class="card-title activator grey-text text-darken-4"><%=posts[i].recipeName%> <i class="material-icons right">more_vert</i></span>
-                              <p><a href="/post/<%=posts[i]._id%> ">This is a link</a></p>
+                              <p><a href="/post/<%=posts[i]._id%> ">Click me to cook me!</a></p>
                             </div>
                             <div class="card-reveal">
                               <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
@@ -107,13 +175,13 @@
                             </div>
                           </div>	  
                         <% } else {%>
-                          <div class="card small sub col offset-s2 s5">
+                          <div class="card small sub col offset-l2 l5">
                             <div class="card-image waves-effect waves-block waves-light">
                               <img class="activator responsive-img" src="<%=posts[i].image%> " >
                             </div>
                             <div class="card-content">
                               <span class="card-title activator grey-text text-darken-4"><%=posts[i].recipeName%> <i class="material-icons right">more_vert</i></span>
-                              <p><a href="/post/<%=posts[i]._id%> ">This is a link</a></p>
+                              <p><a href="/post/<%=posts[i]._id%> ">Click me to cook me!</a></p>
                             </div>
                             <div class="card-reveal">
                               <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
@@ -122,8 +190,6 @@
                           </div>
                         <% } %> 
                       <% } %>
-              
-
                 </div>
             </section>
             <% } %> 

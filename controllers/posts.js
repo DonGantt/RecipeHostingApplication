@@ -5,8 +5,6 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id }).sort({likes: -1});
-      console.log(req.user)
-      console.log(posts)
       res.render("profile.ejs", { posts: posts, user: req.user });
     } catch (err) {
       console.log(err);
@@ -15,24 +13,27 @@ module.exports = {
   getCreatePost: async (req, res) =>{
     res.render("createpost.ejs",{
       title: "Grandma's Cookbook -- Post A Recipe", 
-      user: req.user
+      user: req.user,
+      isEdit: false
+
     })
-  },
-  getFeed: async (req, res) => {
-    try {
-      const posts = await Post.find().sort({ likes: -1 }).lean();
-      res.render("feed.ejs", { posts: posts });
-    } catch (err) {
-      console.log(err);
-    }
   },
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      console.log(post)
       res.render("post.ejs", { post: post, user: req.user });
     } catch (err) {
       console.log(err);
+    }
+  },
+  getEditPost: async (req, res) => {
+    try {
+      const post = await Post.findById(req.params.id);
+      res.render("createpost.ejs", {
+        post: post, user: req.user, isEdit: true
+      })
+    } catch (err) {
+      console.log(err)
     }
   },
   getSortedFeed: async (req, res) => {
@@ -46,11 +47,7 @@ module.exports = {
   },
   getRandomPost: async (req, res) => {
     try {
-      console.log("hit")
       const [post] = await Post.aggregate([{ $sample: { size: 1 } }])
-
-      console.log(post)
-
       res.render("post.ejs", { post: post, user: req.user });
     } catch (err) {
       console.log(err);
@@ -59,7 +56,6 @@ module.exports = {
   createPost: async (req, res) => {
     try {
 
-      console.log(req.body)
       let directions, ingredients;
       
       !Array.isArray(req.body.recipeDirection) ? directions = [req.body.recipeDirection] : directions = req.body.recipeDirection;
@@ -88,7 +84,6 @@ module.exports = {
 
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
-      console.log(result)
 
       await Post.create({
         recipeName: req.body.recipeName,
@@ -110,6 +105,7 @@ module.exports = {
   },
   likePost: async (req, res) => {
     try {
+      console.log(req.body)
       await Post.findOneAndUpdate(
         { _id: req.params.id },
         {
@@ -117,6 +113,60 @@ module.exports = {
         }
       );
       console.log("Likes +1");
+      res.redirect(`/post/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },  
+  editPost: async (req, res) => {
+    try {
+
+      let directions, ingredients;
+      
+      !Array.isArray(req.body.recipeDirection) ? directions = [req.body.recipeDirection] : directions = req.body.recipeDirection;
+    
+      !Array.isArray(req.body.recipeIngredient) ? ingredients = [req.body.recipeIngredient] : ingredients = req.body.recipeIngredient;
+
+      directions = directions.filter(elem => {
+        if(elem!= undefined || elem != null ){
+          elem = elem.trim();
+          if(elem != ""){
+            return elem
+          }
+        }
+      })
+
+      
+      ingredients = ingredients.filter(elem => {
+        if(elem!= undefined || elem != null ){
+          elem = elem.trim();
+          if(elem != ""){
+            return elem
+          }
+        }
+      })
+
+
+      const updatePost = await Post.findById(req.params.id)
+
+      if(req.body.recipeName.trim() !== null && req.body.recipeName.trim() !== undefined && req.body.recipeName.trim() !== ""){
+        updatePost.recipeName = req.body.recipeName.trim();
+      }
+      if(req.body.recipeDescription.trim() !== null && req.body.recipeDescription.trim() !== undefined && req.body.recipeDescription.trim() !== ""){
+        updatePost.description = req.body.recipeDescription.trim();
+      }
+      if(directions !== null && directions.length !== 0){
+        updatePost.recipeDirections = directions;
+      }
+      if(ingredients !== null && ingredients.length !== 0){
+        updatePost.recipeIngredients = ingredients;
+      }
+      if(req.body.recipeCategory !== null && req.body.recipeCategory !== undefined &&req.body.recipeCategory !== ""){
+        updatePost.recipeCategory = req.body.recipeCategory;
+      }
+      
+      updatePost.save()
+
       res.redirect(`/post/${req.params.id}`);
     } catch (err) {
       console.log(err);

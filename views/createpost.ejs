@@ -1,6 +1,11 @@
 
 
 <%- include("partials/header") %> 
+
+<% if (!isEdit) { %>
+ 
+
+
 <main>
     <!-- There are tweaks i can still perform! -->
     <section class="form-section">
@@ -69,4 +74,76 @@
         </div>
     </section>
 </main>
+
+<% } else { %>
+    <main>
+        <!-- There are tweaks i can still perform! -->
+        <section class="form-section">
+            <div class="container row">
+                <h2 class="center-align" id="recipePage">Edit Your Recipe!</h2>
+                <h3 class="center-align" id="recipePage">Currently Editing: <%= post.recipeName %></h3>
+                <p class="center-align">Recreate your recipe from scratch!. <strong>Everything you write will overwrite your previous recipe.</strong></p> 
+                <div class="col s12 l6 offset-l3 m8 offset-m2" id="form-div">
+                    <form id="form" action="/post/edit/<%= post._id %>?_method=PUT" method="POST" >
+                        <div class="input-field">
+                            <input id="recipeName" type="text" minlength="2" required name="recipeName">
+                            <label for="recipeName">Recipe Name</label>
+                        </div>
+                        <div class="ingredient-container">
+                            <div class="input-field" id = "ingredient-0">
+                                <input class="ingredients" type="text"  name="recipeIngredient">
+                                <label for="recipeIngredient">Add Ingredients</label>
+                            </div>
+                        </div>
+                      
+                        <div class="direction-container">
+                            <div class="input-field">
+                                <span class=" prefix">1:</span>
+    
+                                <textarea class="materialize-textarea" name="recipeDirection" id="recipeDirection"></textarea>
+                                <label for="recipeDirection">Add Direction</label>
+                                    <!-- use add and remove later for neater code for icons -->
+                            </div>
+                        </div> 
+                  
+                        <div class="input-field">
+                            <textarea class="materialize-textarea" name="recipeDescription" id="recipeDescription" required></textarea>
+                            <label for="recipeDescription">Describe your recipe</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select required name="recipeCategory">
+                                <option value="" disabled selected>Choose your category</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Dessert">Dessert</option>
+                                <option value="AppSnack">Appetizer-Snack</option>
+                            </select>
+                            <label>Choose Your Category</label>
+                        </div>
+    
+                        <div class="center align" id="button-container">
+                            <div>
+                                <button id="addIngredient" type="button" class="btn">Add Ingredient</button>    
+                                <button id="deleteIngredient" type="button"  class="btn">Erase Ingredient</button>
+                            </div>
+                            <br>
+                            <br>
+                            <div>
+                                <button id="addDirection" type="button" class="btn"><i class="class material-icon">add</i></button>
+                                <button id="deleteDirection" type="button"  class="btn">Erase Direction</button>
+                            </div>
+                            <br>
+                            <br>
+                            <button id="submitItems" type="submit" class="btn" name="submitRecipe" value="Submit Recipe">Submit Recipe
+                            </button>   
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+<% }%>
+ 
 <%- include("partials/footer") %> 
