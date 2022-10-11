@@ -5,7 +5,7 @@
 
 	<section class="main container valign-wrapper row">
 	  	<div class="col s3 hide-on-med-and-down">
-			<% if (randomPosts.length == 4) { %>
+			<% if (randomPosts.length > 3) { %>
 
 			<div class="card small">
 				
@@ -19,7 +19,7 @@
 				<div class="card-reveal">
 				  <span class="card-title grey-text text-darken-4">Click me to cook me!<i class="material-icons right">close</i></span>
 				  <p><%= randomPosts[0].description %> </p>
-				  <p><%= randomPosts[0].likes %> </p>				
+				  <p>Likes: <%= randomPosts[0].likes %> </p>				
 				</div>
 			</div>
 			  
@@ -35,7 +35,7 @@
 				<div class="card-reveal">
 				  <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
 				  <p><%= randomPosts[1].description %> </p>
-				  <p><%= randomPosts[1].likes %> </p>				
+				  <p>Likes: <%= randomPosts[1].likes %> </p>				
 				</div>
 			  
 			</div>
@@ -55,7 +55,7 @@
 			<div class="card-reveal">
 			  <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
 			  <p><%= posts[0].description %> </p>
-			  <p><%= posts[0].likes %> </p>
+			  <p>Likes: <%=posts[0].likes %> </p>
 			</div>
 		  </div>
 		</div>
@@ -65,7 +65,7 @@
 	
 		
 		<div class="col s3 hide-on-med-and-down">
-			<% if (randomPosts.length == 4) { %>
+			<% if (randomPosts.length > 3) { %>
 				<div class="card small">
 					<div class="card-image waves-effect waves-block waves-light">
 						<img class="activator responsive-img" src="<%= randomPosts[2].image %>" >
@@ -77,7 +77,7 @@
 					<div class="card-reveal">
 				  		<span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
 						<p><%= randomPosts[2].description %> </p>
-						<p><%= randomPosts[2].likes %> </p>			
+						<p>Likes: <%= randomPosts[2].likes %> </p>			
 					</div>
 
 			</div>
@@ -94,7 +94,7 @@
 				<div class="card-reveal">
 				  	<span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
 					<p><%= randomPosts[3].description %> </p>
-					<p><%= randomPosts[3].likes %> </p>	
+					<p>Likes: <%= randomPosts[3].likes %> </p>	
 				</div>	
 			</div>
 			<% } %> 
@@ -130,6 +130,7 @@
 				<div class="card-reveal">
 				  <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
 				  <p><%= posts[i].description %> </p>
+				  <p>Likes: <%= posts[i].likes %> </p>
 				</div>
 			  </div>	  
 			<% } else {%>
@@ -144,6 +145,7 @@
 				<div class="card-reveal">
 				  <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
 				  <p><%=posts[i].description%> </p>
+				  <p>Likes: <%=posts[i].likes %> </p>
 				</div>
 			  </div>
 			<% } %> 
