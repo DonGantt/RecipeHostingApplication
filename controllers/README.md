@@ -19,7 +19,7 @@ Currently I need to optimize it for multiple device outputs instead of just the 
 In the future I want to build out the project using Svelte or React and create the backend using GoLang!
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+This project taught me the ins and outs of a developing a full stack, from conception to creation to implementation. It taught me very important lessons about researching potential tools and reading the documentation to implement those items. It also helped me become a better debugger and helped hone my skills when it comes to reading, fixing, and refactoring my code to be readable and improve modularity.
 
 
 
