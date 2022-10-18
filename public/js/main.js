@@ -6,10 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var sidebar = document.querySelectorAll('.sidenav');
     var tabs = document.querySelectorAll(".tabs")
     var select = document.querySelectorAll('select');
+    var imgs = document.querySelectorAll('.materialboxed');
     var sidenavInstance = M.Sidenav.init(sidebar, {});
     var tabInstance = M.Tabs.init(tabs, {});
     var selectInstance = M.FormSelect.init(select, {});
-
+    var imgInstance = M.Materialbox.init(imgs, {});
     // var instance = M.Tabs.getInstance(tabs);
     
 
