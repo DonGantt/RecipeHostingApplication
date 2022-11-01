@@ -29,9 +29,7 @@ module.exports = {
   getEditPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      res.render("createpost.ejs", {
-        post: post, user: req.user, isEdit: true
-      })
+      res.render("createpost.ejs", {post: post, user: req.user, isEdit: true})
     } catch (err) {
       console.log(err)
     }
@@ -40,7 +38,7 @@ module.exports = {
     try {
       const posts = await Post.find({ recipeCategory: req.params.category }).sort({ likes: -1 }).lean();
       console.log(posts)
-      res.render("sortedpost.ejs", { posts: posts, user: req.user });
+      res.render("sortedpost.ejs", { posts: posts, user: req.user, category: req.params.category});
     } catch (err) {
       console.log(err);
     }

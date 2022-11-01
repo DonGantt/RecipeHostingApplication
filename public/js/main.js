@@ -13,10 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var imgInstance = M.Materialbox.init(imgs, {});
     // var instance = M.Tabs.getInstance(tabs);
     
-
     
 
 });
+
+if(document.getElementById("homePage")) M.toast({html: 'Click an image to enlarge it'})
+if(document.getElementById("accountPage")) M.toast({html: "Click the plus to create new recipes!"})
+
 
 if(document.getElementById("addIngredient")){
     ingredientId = 0;

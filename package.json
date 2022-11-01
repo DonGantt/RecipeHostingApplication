@@ -16,7 +16,6 @@
   "dependencies": {
     "@materializecss/materialize": "^1.1.0",
     "bcrypt": "^5.0.1",
-    "bootstrap": "^5.2.1",
     "cloudinary": "^1.25.1",
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
@@ -33,7 +32,6 @@
     "nodemon": "^2.0.7",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "tailwindcss": "^3.1.8",
     "validator": "^13.6.0"
   }
 }
