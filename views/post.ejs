@@ -79,12 +79,11 @@
       <div class="col s12 m12 show-on-medium-and-down hide-on-large-only">
         <div class="card sticky-action medium">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator responsive-img" src="<%= post.image %> ">
+            <img class=" responsive-img materialboxed" src="<%= post.image %> ">
           </div>
           <div class="card-content">
-            <h5>
-              <%= post.recipeName %>
-            </h5>
+            <h5> <%= post.recipeName %> <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span></h5>
+            
             <div class="card-action row" style="margin-bottom: 0%;">
               <% if (user) { %>
                 <div class="col  l1 m2 s2">

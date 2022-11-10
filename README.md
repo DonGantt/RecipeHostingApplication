@@ -14,7 +14,7 @@ Once I got the packages together, I created the server.js file and started putti
 
 ## Optimizations
 
-Currently, I need to optimize it for multiple device outputs instead of just the generic tablet, mobile, and desktop viewport. I also need to optimize the design of the application. Currently, I intend to add in the future, a rating system, a way to view every user account and their created post, a favorite system where you can view your favorite posts, and a system that allows the user to like and unlike a post as well as only allow a user to like a post one time. Also fully integrate the Materialize CSS into the project and strip out the reset stylesheet, Tailwind and Bootstrap dependencies.
+Currently, I need to optimize it for multiple device outputs instead of just the generic tablet, mobile, and desktop viewport. I also need to optimize the design of the application. Currently, I intend to add in the future, a rating system, a way to view every user account and their created post, a favorite system where you can view your favorite posts, and a system that allows the user to like and unlike a post as well as only allow a user to like a post one time. Add a way to view your description while you edit it. Also fully integrate the Materialize CSS into the project and strip out the reset stylesheet, Tailwind and Bootstrap dependencies.
 
 In the future, I want to build out the project using Svelte or React and create the backend using GoLang!
 

@@ -15,7 +15,6 @@ exports.getLogin = (req, res) => {
 
 exports.postLogin = (req, res, next) => {
   const validationErrors = [];
-  console.log(req.body)
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
   if (validator.isEmpty(req.body.password))
@@ -70,31 +69,31 @@ exports.getSignup = (req, res) => {
   });
 };
 
-exports.postSignup = (req, res, next) => {
-  // console.log(req.body)
-  // const validationErrors = [];
-  // console.log(validationErrors)
-  // if (!validator.isEmail(req.body.email))
-  // console.log("email validation")
-  //   validationErrors.push({ msg: "Please enter a valid email address." });
-  // if (!validator.isLength(req.body.password, { min: 8 }))
-  //   console.log("short error ")  
-  // validationErrors.push({
-  //     msg: "Password must be at least 8 characters long",
-  //   });
-  // if (req.body.password !== req.body.confirmPassword)
-  // console.log("validation password")
-  //   validationErrors.push({ msg: "Passwords do not match" });
+exports.postSignup = async (req, res, next) => {
+  const validationErrors = [];
+  if (!validator.isEmail(req.body.email)){
+    validationErrors.push({ msg: "Please enter a valid email address." });
+    alert("Please Enter A Valid Email Address.")
+  }
+    
+  if (!validator.isLength(req.body.password, { min: 8 })){
+    validationErrors.push({msg: "Password must be at least 8 characters long",});
+  }
 
-  // if (validationErrors.length) {
-  //   console.log("validation error", validationErrors)
-  //   req.flash("errors", validationErrors);
-  //   return res.redirect("../signup");
-  // }
-  // console.log(validationErrors)
-  // req.body.email = validator.normalizeEmail(req.body.email, {
-  //   gmail_remove_dots: false,
-  // });
+  if (req.body.password !== req.body.confirmPassword){
+    validationErrors.push({ msg: "Passwords do not match" });
+    alert("Passwords Do Not Match. Please Try Again")
+  }
+
+
+  if (validationErrors.length) {
+    await req.flash("errors", validationErrors);
+    return res.redirect("../signup");
+  }
+  console.log(validationErrors)
+  req.body.email = validator.normalizeEmail(req.body.email, {
+    gmail_remove_dots: false,
+  });
 
   //Come back to this and repair it later
 
