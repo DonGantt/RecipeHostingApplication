@@ -469,3 +469,11 @@ main {
 .btn a{
   color: #fff !important;
 }
+
+.responsiveText{
+  font-size:5vw !important;
+}
+
+.lower-margin{
+  margin-bottom: 5%;
+}

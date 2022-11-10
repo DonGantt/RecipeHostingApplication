@@ -45,6 +45,10 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  likedUsers: {
+    type: Array,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Post", PostSchema);

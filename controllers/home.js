@@ -8,7 +8,6 @@ module.exports = {
             const randomPost = await Post.aggregate([ { $sample: { size: 4 } } ])
             const posts = await Post.find().sort({ likes: -1 }).lean();
             
-            console.log(randomPost, posts)
             res.render("home.ejs", { 
                 title: "Grandma's Cookbook -- Home",
                 user: req.user,
