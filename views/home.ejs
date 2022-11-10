@@ -116,12 +116,14 @@
 				  <p>Here is some more information about this product that is only revealed once clicked on.</p>
 				</div>
 			  </div> -->
+<div class="container">	<div class="divider black"></div></div>
 
-<section class="Sub_Recipes">
+<section class="sub-recipes">
+
 	<div class="container row">
 		<% for( let i = 1; i < posts.length; i++ ) { %>
 			<% if (i%2 !== 0) { %>
-			  <div class="card small  col left s5">
+			  <div class="card medium  col left m5 s12">
 				<div class="card-image waves-effect waves-block waves-light">
 				  <img class="materialboxed responsive-img" loading="lazy" src="<%=posts[i].image%> " >
 				</div>
@@ -136,7 +138,7 @@
 				</div>
 			  </div>	  
 			<% } else {%>
-			  <div class="card small sub col offset-s2 s5">
+			  <div class="card medium sub col offset-m2 m5 s12">
 				<div class="card-image waves-effect waves-block waves-light">
 				  <img class="materialboxed responsive-img" loading="lazy"  src="<%=posts[i].image%> " >
 				</div>

@@ -76,12 +76,12 @@
                             <p>I am a very simple card. I am good at containing small bits of information.</p>
                           </div> -->
                           <div class="card-action"style="margin-bottom: 0%;">
-                            <div class="col l1 m2 s2">
+                            <div class="col l2 m2 s2">
                                 <form action="/post/deletePost/<%= posts[0].id %>?_method=DELETE" method="POST">
                                     <button class="btn" type="submit">  <i class="small material-icons valign-wrapper">delete</i></button>
                                 </form>
                             </div>
-                            <div class="col l1 m2 s2">
+                            <div class="col l2 m2 s2">
                                 <button type="" class="btn"><a href="/post/edit/<%= posts[0].id %>" style="margin-right:0%;"><i class="small material-icons">create</i></a></button>
                             </div>
                             <!-- <a href="#">This is a link</a> -->
@@ -94,7 +94,7 @@
                 <div class="col s12 m12 show-on-medium-and-down hide-on-large-only">
                     <h5>Most Popular Recipe: <%= posts[0].recipeName %> </h5>
 
-                    <div class="card sticky-action medium">
+                    <div class="card medium">
                       <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator responsive-img" loading="lazy"  src="<%= posts[0].image %> ">
                       </div>
@@ -104,12 +104,12 @@
                         </h5>
                         <div class="card-action row" style="margin-bottom: 0%;">
                 
-                              <div class="col l1 m2 s2">
+                              <div class="col l2 m2 s3">
                                 <form action="/post/deletePost/<%= posts[0]._id %>?_method=DELETE" method="POST" class="">
                                   <button class="btn" type="submit"><i class="small material-icons">delete</i></button>
                                 </form>
                               </div>
-                              <div class="col l1 m2 s2">
+                              <div class="col l2 m2 s3">
                                 <button type="" class="btn"><a href="/post/edit/<%= posts[0]._id %>" style="margin-right:0%;"><i class="small material-icons">create</i></a></button>
                               </div>
                         
@@ -155,7 +155,7 @@
                   </div>
             </section>
         
-            <div class="divider"></div>
+            <div class="divider black"></div>
 
             <section>
                 <div class="row">
