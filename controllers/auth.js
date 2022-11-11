@@ -73,7 +73,6 @@ exports.postSignup = async (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email)){
     validationErrors.push({ msg: "Please enter a valid email address." });
-    alert("Please Enter A Valid Email Address.")
   }
     
   if (!validator.isLength(req.body.password, { min: 8 })){
@@ -82,7 +81,6 @@ exports.postSignup = async (req, res, next) => {
 
   if (req.body.password !== req.body.confirmPassword){
     validationErrors.push({ msg: "Passwords do not match" });
-    alert("Passwords Do Not Match. Please Try Again")
   }
 
 
