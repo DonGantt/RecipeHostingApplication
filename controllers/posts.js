@@ -21,6 +21,7 @@ module.exports = {
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
+      console.log(post)
       res.render("post.ejs", { post: post, user: req.user });
     } catch (err) {
       console.log(err);
@@ -102,15 +103,36 @@ module.exports = {
     }
   },
   likePost: async (req, res) => {
+    //Convert back to findOneAndUpdate
     try {
-      console.log(req.body)
-      await Post.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          $inc: { likes: 1 },
-        }
-      );
+      await Post.findByIdAndUpdate(req.params.id, {
+        $inc: { likes: 1 },
+        
+        $push: { "likedUsers": req.user.id } 
+      })
       console.log("Likes +1");
+      res.redirect(`/post/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },  
+  unlikePost: async (req, res) => {
+    try {
+      await Post.findByIdAndUpdate(req.params.id, {
+        $inc: { likes: -1 },
+        
+        $pull: { "likedUsers": req.user.id } 
+      })
+        
+      //   { _id: req.params.id },
+      //   {
+      //     $inc: { likes: 1 },
+      //   },
+      //   {
+      //     likedUsers: likedUsers.push(req.user)
+      //   }
+      // );
+      console.log("Likes -1");
       res.redirect(`/post/${req.params.id}`);
     } catch (err) {
       console.log(err);

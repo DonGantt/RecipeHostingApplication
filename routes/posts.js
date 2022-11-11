@@ -20,6 +20,8 @@ router.post("/createPost", ensureAuth ,upload.single("file"), postsController.cr
 
 router.put("/likePost/:id", ensureAuth ,postsController.likePost);
 
+router.put("/unlikePost/:id", ensureAuth ,postsController.unlikePost);
+
 router.put("/edit/:id", ensureAuth, postsController.editPost)
 
 router.delete("/deletePost/:id", ensureAuth ,postsController.deletePost);

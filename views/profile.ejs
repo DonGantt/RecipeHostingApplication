@@ -72,15 +72,29 @@
                               </ol>
                             </div>
                           </div>
-                          <!-- <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.</p>
-                          </div> -->
+                
                           <div class="card-action"style="margin-bottom: 0%;">
+
+                            <% if (posts[0].likedUsers.includes(user._id)) { %>
+                              <div class="col  l2 m2 s3">
+                                <form class="" action="/post/unlikePost/<%= posts[0]._id %>?_method=PUT" method="POST">
+                                  <button class="btn materialize-red-text"  type="submit">  <i class="small material-icons ">favorite</i></button>                
+                                </form>
+                              </div>
+                            <% } else { %>
+                              <div class="col  l2 m2 s3">
+                                <form class="" action="/post/likePost/<%= posts[0]._id %>?_method=PUT" method="POST">
+                                  <button class="btn" type="submit">  <i class="small material-icons">favorite</i></button>                
+                                </form>
+                              </div>
+                            <% } %>
+
                             <div class="col l2 m2 s2">
                                 <form action="/post/deletePost/<%= posts[0].id %>?_method=DELETE" method="POST">
                                     <button class="btn" type="submit">  <i class="small material-icons valign-wrapper">delete</i></button>
                                 </form>
                             </div>
+
                             <div class="col l2 m2 s2">
                                 <button type="" class="btn"><a href="/post/edit/<%= posts[0].id %>" style="margin-right:0%;"><i class="small material-icons">create</i></a></button>
                             </div>
@@ -104,14 +118,30 @@
                         </h5>
                         <div class="card-action row" style="margin-bottom: 0%;">
                 
-                              <div class="col l2 m2 s3">
-                                <form action="/post/deletePost/<%= posts[0]._id %>?_method=DELETE" method="POST" class="">
-                                  <button class="btn" type="submit"><i class="small material-icons">delete</i></button>
-                                </form>
-                              </div>
-                              <div class="col l2 m2 s3">
-                                <button type="" class="btn"><a href="/post/edit/<%= posts[0]._id %>" style="margin-right:0%;"><i class="small material-icons">create</i></a></button>
-                              </div>
+                          <% if (posts[0].likedUsers.includes(user._id)) { %>
+                            <div class="col  l2 m2 s3">
+                              <form class="" action="/post/unlikePost/<%= posts[0]._id %>?_method=PUT" method="POST">
+                                <button class="btn materialize-red-text"  type="submit">  <i class="small material-icons ">favorite</i></button>                
+                              </form>
+                            </div>
+                          <% } else { %>
+                            <div class="col  l2 m2 s3">
+                              <form class="" action="/post/likePost/<%= posts[0]._id %>?_method=PUT" method="POST">
+                                <button class="btn" type="submit">  <i class="small material-icons">favorite</i></button>                
+                              </form>
+                            </div>
+                          <% } %>
+
+                          
+                          <div class="col l2 m2 s3">
+                            <form action="/post/deletePost/<%= posts[0]._id %>?_method=DELETE" method="POST" class="">
+                              <button class="btn" type="submit"><i class="small material-icons">delete</i></button>
+                            </form>
+                          </div>
+                          
+                          <div class="col l2 m2 s3">
+                            <button type="" class="btn"><a href="/post/edit/<%= posts[0]._id %>" style="margin-right:0%;"><i class="small material-icons">create</i></a></button>
+                          </div>
                         
                         </div>
                       </div>
