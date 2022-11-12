@@ -20,9 +20,28 @@ In the future, I want to build out the project using Svelte or React and create 
 
 ## Lessons Learned:
 
-This project taught me the ins and outs of developing a full stack, from conception to creation to implementation. It taught me very important lessons about researching potential tools and reading the documentation to implement those items. It also helped me become a better debugger and helped hone my skills when it comes to reading, fixing, and refactoring my code to be readable and improve modularity.
+This project taught me the ins and outs of developing a full stack app, from conception to creation to implementation. It taught me very important lessons about researching potential tools and reading the documentation to implement those items. It also helped me become a better debugger and helped hone my skills when it comes to reading, fixing, and refactoring my code to be readable and improve modularity.
 
 
+## Update Log
 
+#11-12-22
+-- Fixed Mobile Responsiveness: Properly sized each card for mobile layouts and re-spaced certain UI elements
+
+-- Adds Parity Between Cards: Standardized the size of each card
+
+-- Adds Liking And Unliking: You can now like and unlike a post; this also prevents spamming likes 
+
+-- Uploaded to a temporary hosting provider at https://grandmascookbook.cyclic.app/
+
+-- Updated Various UI Elements: Fixed certain UI elements like creating and updating post
+
+## Incoming Updates
+
+-- Adding the ability to view other user accounts
+
+-- More UI improvements
+
+-- Swapping hosting providers 
 
 
