@@ -26,6 +26,7 @@ This project taught me the ins and outs of developing a full stack app, from con
 ## Update Log
 
 #11-12-22
+
 -- Fixed Mobile Responsiveness: Properly sized each card for mobile layouts and re-spaced certain UI elements
 
 -- Adds Parity Between Cards: Standardized the size of each card
