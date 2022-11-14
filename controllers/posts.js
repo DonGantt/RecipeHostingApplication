@@ -38,7 +38,6 @@ module.exports = {
   getSortedFeed: async (req, res) => {
     try {
       const posts = await Post.find({ recipeCategory: req.params.category }).sort({ likes: -1 }).lean();
-      console.log(posts)
       res.render("sortedpost.ejs", { posts: posts, user: req.user, category: req.params.category});
     } catch (err) {
       console.log(err);

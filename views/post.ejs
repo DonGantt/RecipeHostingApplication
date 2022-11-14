@@ -50,7 +50,7 @@
               </div> -->
               <div class="card-action row" style="margin-bottom: 0%;">
                 <% if (user) { %>
-                  <% if (post.likedUsers.includes(user._id)) { %>
+                  <% if (post.likedUsers.includes(`${user._id}`)) { %>
                     <div class="col  l2 m2 s3">
                       <form class="" action="/post/unlikePost/<%= post._id %>?_method=PUT" method="POST">
                         <button class="btn" style="color: red;" type="submit">  <i class="small material-icons ">favorite</i></button>                
@@ -94,13 +94,14 @@
             
             <div class="card-action row" >
               <% if (user) { %>
-                <% if (post.likedUsers.includes(user._id)) { %>
+                <% if (post.likedUsers.includes(`${user._id}`)) { %>
                   <div class="col  l2 m2 s3">
                     <form class="" action="/post/unlikePost/<%= post._id %>?_method=PUT" method="POST">
                       <button class="btn" type="submit">  <i class="small material-icons red">favorite</i></button>                
                     </form>
                   </div>
                 <% } else { %>
+                  <% console.log("this is hit") %> 
                   <div class="col  l2 m2 s3">
                     <form class="" action="/post/likePost/<%= post._id %>?_method=PUT" method="POST">
                       <button class="btn" type="submit">  <i class="small material-icons">favorite</i></button>                
